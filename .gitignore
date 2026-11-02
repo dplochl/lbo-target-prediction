@@ -1,0 +1,43 @@
+# Data (reproducible from src/ scripts against public APIs — not committed)
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Course material (kept locally, not part of the project)
+course_material/
+
+# Data archive (published as a GitHub release asset, not in the repo)
+data_backup*.zip
+
+# Office lock files
+~$*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / tools
+.vscode/
+.idea/
+.claude/settings.local.json

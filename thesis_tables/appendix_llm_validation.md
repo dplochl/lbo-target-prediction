@@ -1,0 +1,40 @@
+# LLM buyer-type classification: goldstandard validation (30 cases)
+
+| deal (target) | CIK | source | completion status | model label | model buyer name | abstain | hand label | hand label source |
+|---|---|---|---|---|---|---|---|---|
+| FREDERICK'S OF HOLLYWOOD GROUP INC /NY/ | 0000093631 | both | completed | pe_sponsor | Five Island Asset Management, LLC | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| GOLDEN ENTERTAINMENT, INC. | 0001071255 | both | completed | family | Argento, LLC; Blake L. Sartini; Blake L. Sartini and Delise F. Sartini Family Trust | no | family | implied by confusion matrix (22/22 on diagonal) |
+| RealD Inc. | 0001327471 | both | completed | pe_sponsor | Rizvi | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| CRAFT BREW ALLIANCE, INC. | 0000892222 | both | completed | strategic | A-B | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| Orchard Enterprises, Inc. | 0001339729 | both | not_completed | family | Dimensional Associates | no | family | implied by confusion matrix (22/22 on diagonal) |
+| Sinoenergy CORP | 0001107563 | both | not_completed | management | Skywide | no | management | implied by confusion matrix (22/22 on diagonal) |
+| El Paso Pipeline Partners, L.P. | 0001410838 | both | not_completed | strategic | KINDER MORGAN, INC. | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| Ashford Inc. | 0001604738 | both | not_completed | abstained |  | yes |  | not stored in repository – fill in from coding sheet |
+| STEIN MART INC | 0000884940 | both | uncertain | pe_sponsor | Firm A | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| China XD Plastics Co Ltd | 0001353970 | both | uncertain | pe_sponsor | 2017 Buyer Group | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| NBTY INC | 0000070793 | proxy_only | completed | pe_sponsor | Carlyle | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| WILLIAMS PARTNERS L.P. | 0001483096 | proxy_only | completed | strategic | Williams | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| XILINX INC | 0000743988 | proxy_only | completed | strategic | AMD | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| Augmedix, Inc. | 0001769804 | proxy_only | completed | unknown | Commure | no |  | not stored in repository – fill in from coding sheet |
+| Mike the Pike Productions, Inc. | 0001550222 | proxy_only | not_completed | abstained |  | yes |  | not stored in repository – fill in from coding sheet |
+| TKO Group Holdings, Inc. | 0001973266 | proxy_only | not_completed | family | EDR | no | family | implied by confusion matrix (22/22 on diagonal) |
+| Altus Power, Inc. | 0001828723 | proxy_only | not_completed | pe_sponsor | TPG | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| International Money Express, Inc. | 0001683695 | proxy_only | not_completed | abstained |  | yes |  | not stored in repository – fill in from coding sheet |
+| ALLOS THERAPEUTICS INC | 0001097264 | proxy_only | uncertain | abstained |  | yes |  | not stored in repository – fill in from coding sheet |
+| China Real Estate Information Corp | 0001472353 | sc13e3_only | completed | strategic | E-HOUSE (CHINA) HOLDINGS LTD | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| MINERVA SURGICAL INC | 0001452965 | sc13e3_only | completed | pe_sponsor | Accelmed Partners II L.P. | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| Nuvei Corp | 0001765159 | sc13e3_only | completed | pe_sponsor | Advent International, L.P. | no | pe_sponsor | implied by confusion matrix (22/22 on diagonal) |
+| Patni Computer Systems LTD | 0001324503 | sc13e3_only | not_completed | strategic | IGATE CORP | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| ZUNICOM INC | 0000886912 | sc13e3_only | not_completed | abstained |  | yes |  | not stored in repository – fill in from coding sheet |
+| Asia Green Agriculture Corp | 0001440476 | sc13e3_only | not_completed | family | Youdai Zhan | no | family | implied by confusion matrix (22/22 on diagonal) |
+| NZCH Corp | 0001083243 | sc13e3_only | not_completed | abstained |  | yes |  | not stored in repository – fill in from coding sheet |
+| Abtech Holdings, Inc. | 0001405858 | sc13e3_only | not_completed | unknown | Golden Properties Ltd. and Hugo Neu Corporation | no |  | not stored in repository – fill in from coding sheet |
+| EQGP Holdings, LP | 0001632933 | sc13e3_only | uncertain | strategic | Equitrans Midstream Corporation | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| EQM Midstream Partners, LP | 0001540947 | proxy_only | uncertain | strategic | ETRN | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+| Urovant Sciences Ltd. | 0001740547 | both | completed | strategic | Sumitomo Dainippon | no | strategic | implied by confusion matrix (22/22 on diagonal) |
+
+- Model: Claude Haiku 4.5 (claude-haiku-4-5-20251001), single pass, forced tool call with literal supporting quotes, mandatory abstain option (src/05_buyer_classification.py).
+- Model label = final buyer_type after the Stage 6/7/9/10 evidence fixes (e.g. Golden Entertainment: family/Sartini after the regression fix).
+- Hand labels per case are not stored in the repository. For the 22 committed cases the hand label follows from the confusion matrix in PROGRESS.md (all on the diagonal).
+- For the 8 non-committed cases the matrix gives only totals: model 'abstained' (6) = hand family 2, strategic 2, unknown 2; model 'unknown' (2) = hand family 1, strategic 1.
+- Excluded: Vapor Corp (CIK 0000844856), the tracked filing shows Vapor as the acquirer, not the target.
