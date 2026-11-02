@@ -27,9 +27,9 @@ Unzip it in the repo root (it creates `data/interim/` and `data/processed/`). Th
 
 ```
 ├── src/                 # data pipeline: SEC download -> events -> firm-year panel -> fundamentals -> ratios
-├── analysis/            # notebooks 01–10 (sample, Palepu variables, Models A/B/C, robustness, applications, exports)
+├── analysis/            # notebooks 01–11 (sample, Palepu variables, Models A/B/C, robustness, applications, exports, descriptives)
 ├── thesis_figures/      # Figures 4.1–4.5 (written by analysis/10_thesis_exports.ipynb)
-├── thesis_tables/       # appendix tables, CSV + Markdown (written by analysis/10_thesis_exports.ipynb)
+├── thesis_tables/       # appendix tables, CSV + Markdown (written by analysis/10_thesis_exports.ipynb and 11_descriptives.ipynb)
 ├── results/             # extreme-row audit (validation of the size screen)
 ├── docs/                # data dictionary
 └── data/                # raw / interim / processed (not in the repo, see above)
@@ -52,7 +52,7 @@ cp .env.example .env               # then fill in the values
 ## Reproducing the results
 
 1. **Data:** either download and unzip the release asset above, or run the pipeline in `src/` in numeric order (01 → 15, then 19 and 19b; `audit_deal_coverage.py` is a separate validation). The full pipeline downloads several GB from the SEC and takes hours.
-2. **Analysis:** run `analysis/01` → `10` in order (`04` writes `data/processed/model_data_palepu.csv`, used by 05–07). From `analysis/`:
+2. **Analysis:** run `analysis/01` → `11` in order (`04` writes `data/processed/model_data_palepu.csv`, used by 05–07). From `analysis/`:
    ```bash
    jupyter nbconvert --to notebook --execute --inplace 04_preprocessing.ipynb
    ```
