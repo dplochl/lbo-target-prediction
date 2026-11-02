@@ -1,8 +1,8 @@
 # LBO / Take-Private Target Prediction
 
-Code for a master's thesis (MSc Business Analytics, Católica Lisbon): which characteristics of publicly listed US companies predict becoming the target of a private-equity take-private?
+Code, notebooks and results of a master's thesis project (MSc Business Analytics, Católica Lisbon) on predicting US private-equity take-private targets from company financials.
 
-The thesis applies the six hypotheses of Palepu (1986, *Journal of Accounting and Economics* 8(1)) to US PE take-privates 2012–2025, built entirely from free SEC data:
+Approach: the takeover-prediction framework of Palepu (1986, *Journal of Accounting and Economics* 8(1)), applied to US PE take-privates 2012–2025. All inputs come from free SEC data.
 
 - **Model A:** Palepu logit (ROE, sales growth, liquidity, leverage, growth–resource imbalance, industry PE activity, size, float/book, float/earnings), with variant A2.
 - **Model B:** extended logit (adds free cash flow, cash-flow volatility, interest coverage, PP&E, R&D, cash ratio, Altman Z''), with variant B2 (quadratic size).
